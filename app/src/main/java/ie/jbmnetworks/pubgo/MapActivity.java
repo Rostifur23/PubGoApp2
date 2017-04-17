@@ -14,16 +14,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.PlaceBuffer;
+import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlacePicker;
+
+import static ie.jbmnetworks.pubgo.R.id.tvPlace;
 
 /**
  * Created by Jack on 4/5/2017.
  */
-
-//These are some tests comments to check git commits
 
 public class MapActivity extends AppCompatActivity {
     TextView placeIdText;
@@ -31,23 +35,24 @@ public class MapActivity extends AppCompatActivity {
     TextView placeAddressText;
     WebView attributionText;
     Button getPlaceButton;
+    Button bMark;
     private final static int MY_PERMISSION_FINE_LOCATION = 101;
 
     private final static int PLACE_PICKER_REQUEST = 1;
-
-
+    RequestQueue requestQueue;
+    private UserAreaActivity userAreaActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         //dealing with run time premishions
         requestPermission();
         placeNameText = (TextView) findViewById(R.id.tvPlaceName);
         placeAddressText = (TextView) findViewById(R.id.tvPlaceAddress);
         attributionText = (WebView) findViewById(R.id.wvAttribution);
         getPlaceButton = (Button) findViewById(R.id.btGetPlace);
+
+        placeIdText = (TextView) findViewById(tvPlace);
 
         Button bProfile = (Button) findViewById(R.id.bProfile);
 
@@ -66,9 +71,12 @@ public class MapActivity extends AppCompatActivity {
             }
         });
 
+
+
         getPlaceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 //make intent builder
 
@@ -122,6 +130,17 @@ public class MapActivity extends AppCompatActivity {
                 Place place = PlacePicker.getPlace(MapActivity.this, data);
                 placeNameText.setText(place.getName());
                 placeAddressText.setText(place.getAddress());
+                final CharSequence placeIdVar   = place.getId();
+
+                if(placeIdVar.equals("ChIJCVErT4wOZ0gRTb822t6ZGw4" )){
+                    placeIdText.setText("This place is registered.");
+
+                }else{
+                    placeIdText.setText("This place is not registered");
+                }
+
+
+
 
 
                 if (place.getAttributions() == null) {
@@ -136,4 +155,9 @@ public class MapActivity extends AppCompatActivity {
 
         }
     }
+
+
+
+
+
 }
