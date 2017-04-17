@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -15,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.ResultCallback;
@@ -23,6 +27,13 @@ import com.google.android.gms.location.places.PlaceBuffer;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlacePicker;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import static ie.jbmnetworks.pubgo.R.id.textView;
 import static ie.jbmnetworks.pubgo.R.id.tvPlace;
 
 /**
@@ -33,10 +44,21 @@ public class MapActivity extends AppCompatActivity {
     TextView placeIdText;
     TextView placeNameText;
     TextView placeAddressText;
+    TextView textviewTest;
     WebView attributionText;
     Button getPlaceButton;
     Button bMark;
     private final static int MY_PERMISSION_FINE_LOCATION = 101;
+
+    /*ArrayList<String> Pub_Id = new ArrayList<String>();
+    ArrayList<String> Place_Id = new ArrayList<String>();
+
+    public MapActivity(ArrayList placeIdArray, ArrayList pubIdArray){
+        this.Place_Id = placeIdArray;
+        this.Pub_Id = pubIdArray;
+    }*/
+
+
 
     private final static int PLACE_PICKER_REQUEST = 1;
     RequestQueue requestQueue;
@@ -55,6 +77,7 @@ public class MapActivity extends AppCompatActivity {
         placeIdText = (TextView) findViewById(tvPlace);
 
         Button bProfile = (Button) findViewById(R.id.bProfile);
+
 
         bProfile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -78,6 +101,8 @@ public class MapActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
+
+
                 //make intent builder
 
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
@@ -89,6 +114,7 @@ public class MapActivity extends AppCompatActivity {
                 } catch (GooglePlayServicesNotAvailableException e) {
                     e.printStackTrace();
                 }
+
 
             }
         });
@@ -128,9 +154,11 @@ public class MapActivity extends AppCompatActivity {
         if (requestCode == PLACE_PICKER_REQUEST) {
             if (resultCode == RESULT_OK) {
                 Place place = PlacePicker.getPlace(MapActivity.this, data);
-                placeNameText.setText(place.getName());
+                placeNameText.setText(place.getName()
+                );
                 placeAddressText.setText(place.getAddress());
-                final CharSequence placeIdVar   = place.getId();
+                final CharSequence placeIdVar = place.getId();
+
 
                 if(placeIdVar.equals("ChIJCVErT4wOZ0gRTb822t6ZGw4" )){
                     placeIdText.setText("This place is registered.");

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class UserAreaActivity extends AppCompatActivity {
     RequestQueue requestQueue;
 
+    //MapActivity Transfer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,16 +67,19 @@ public class UserAreaActivity extends AppCompatActivity {
                                     JSONArray jsonArray = response.getJSONArray("arr");
 
                                     ArrayList<String> placeIdArray = new ArrayList<String>();
+                                    ArrayList<String> pubIdArray = new ArrayList<String>();
                                     for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject Place_id = jsonArray.getJSONObject(i);
                                         JSONObject Pub_id = jsonArray.getJSONObject(i);
 
-                                        placeIdArray.add(Pub_id.getString("pub_id"));
+                                        placeIdArray.add(Place_id.getString("place_id"));
+                                        pubIdArray.add(Pub_id.getString("pub_id"));
 
 
 
-
-                                        //textView.append("pubId"+pubId);
                                     }
+                                    //Transfer = new MapActivity(placeIdArray, pubIdArray);
+
 
 
 
@@ -84,6 +88,8 @@ public class UserAreaActivity extends AppCompatActivity {
                                     e.printStackTrace();
                                 }
                             }
+
+
                         },
                         new Response.ErrorListener() {
                             @Override
@@ -94,6 +100,8 @@ public class UserAreaActivity extends AppCompatActivity {
                         }
                 );
                 requestQueue.add(jsonObjectRequest);
+
+
 
 
 
