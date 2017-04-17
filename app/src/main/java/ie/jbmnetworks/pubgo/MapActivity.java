@@ -23,6 +23,8 @@ import com.google.android.gms.location.places.ui.PlacePicker;
  * Created by Jack on 4/5/2017.
  */
 
+//These are some tests comments to check git commits
+
 public class MapActivity extends AppCompatActivity {
     TextView placeIdText;
     TextView placeNameText;

@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
+    //These are some tests comments to check git commits Override
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

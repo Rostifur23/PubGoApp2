@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class ProfileActivity extends AppCompatActivity {
-
+    //These are some tests comments to check git commits
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
