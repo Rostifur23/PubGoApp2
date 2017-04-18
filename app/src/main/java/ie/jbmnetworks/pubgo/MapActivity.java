@@ -50,14 +50,6 @@ public class MapActivity extends AppCompatActivity {
     Button bMark;
     private final static int MY_PERMISSION_FINE_LOCATION = 101;
 
-    /*ArrayList<String> Pub_Id = new ArrayList<String>();
-    ArrayList<String> Place_Id = new ArrayList<String>();
-
-    public MapActivity(ArrayList placeIdArray, ArrayList pubIdArray){
-        this.Place_Id = placeIdArray;
-        this.Pub_Id = pubIdArray;
-    }*/
-
 
 
     private final static int PLACE_PICKER_REQUEST = 1;
@@ -67,6 +59,29 @@ public class MapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+        if(getIntent().hasExtra("place")){
+            ArrayList<String> Place_Id = getIntent().getStringArrayListExtra("place");
+
+            for(String s : Place_Id){
+                Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+
+            }
+        }
+
+        if(getIntent().hasExtra("pub")){
+            ArrayList<String> Pub_Id = getIntent().getStringArrayListExtra("pub");
+
+            for(String s : Pub_Id){
+                Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+
+            }
+        }
+
+
+
         //dealing with run time premishions
         requestPermission();
         placeNameText = (TextView) findViewById(R.id.tvPlaceName);

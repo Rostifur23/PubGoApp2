@@ -25,12 +25,14 @@ public class UserAreaActivity extends AppCompatActivity {
     RequestQueue requestQueue;
 
     //MapActivity Transfer;
+    ArrayList<String> placeIdArray = new ArrayList<String>();
+    ArrayList<String> pubIdArray = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_area);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         String username = intent.getStringExtra("username");
 
@@ -54,7 +56,8 @@ public class UserAreaActivity extends AppCompatActivity {
 
         bMap.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(UserAreaActivity.this, MapActivity.class));
+                //startActivity(new Intent(UserAreaActivity.this, MapActivity.class));
+                Intent i = new Intent(UserAreaActivity.this, MapActivity.class);
 
                 //Sending off Volley request
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://pubgo-jackbourkemckenna.c9users.io/AppplaceId.php", null,
@@ -66,8 +69,7 @@ public class UserAreaActivity extends AppCompatActivity {
                                 try {
                                     JSONArray jsonArray = response.getJSONArray("arr");
 
-                                    ArrayList<String> placeIdArray = new ArrayList<String>();
-                                    ArrayList<String> pubIdArray = new ArrayList<String>();
+
                                     for (int i = 0; i < jsonArray.length(); i++) {
                                         JSONObject Place_id = jsonArray.getJSONObject(i);
                                         JSONObject Pub_id = jsonArray.getJSONObject(i);
@@ -76,9 +78,12 @@ public class UserAreaActivity extends AppCompatActivity {
                                         pubIdArray.add(Pub_id.getString("pub_id"));
 
 
-
                                     }
-                                    //Transfer = new MapActivity(placeIdArray, pubIdArray);
+
+
+
+
+
 
 
 
@@ -90,6 +95,8 @@ public class UserAreaActivity extends AppCompatActivity {
                             }
 
 
+
+
                         },
                         new Response.ErrorListener() {
                             @Override
@@ -99,9 +106,11 @@ public class UserAreaActivity extends AppCompatActivity {
                             }
                         }
                 );
+
+                i.putStringArrayListExtra("place", placeIdArray);
+                i.putStringArrayListExtra("pub", pubIdArray);
                 requestQueue.add(jsonObjectRequest);
-
-
+                startActivity(i);
 
 
 
@@ -111,18 +120,7 @@ public class UserAreaActivity extends AppCompatActivity {
         });
 
 
-        //location map link
-/*
-        Button bLocation = (Button) findViewById(R.id.bLocation);
 
-        bLocation.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(UserAreaActivity.this, LocationSourceDemoActivity.class));
-            }
-        });
-
-
-*/
     }
 
 }
