@@ -71,6 +71,8 @@ public class MapActivity extends AppCompatActivity {
             }
         }
 
+
+
         if(getIntent().hasExtra("pub")){
             ArrayList<String> Pub_Id = getIntent().getStringArrayListExtra("pub");
 
@@ -172,15 +174,27 @@ public class MapActivity extends AppCompatActivity {
                 placeNameText.setText(place.getName()
                 );
                 placeAddressText.setText(place.getAddress());
-                final CharSequence placeIdVar = place.getId();
+
+                if(getIntent().hasExtra("place")){
+                    ArrayList<String> Place_Id = getIntent().getStringArrayListExtra("place");
+
+                    for(String s : Place_Id){
+                        //Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+
+                        final CharSequence placeIdVar = place.getId();
 
 
-                if(placeIdVar.equals("ChIJCVErT4wOZ0gRTb822t6ZGw4" )){
-                    placeIdText.setText("This place is registered.");
+                        if(placeIdVar.equals(s)){
+                            placeIdText.setText("This place is registered.");
 
-                }else{
-                    placeIdText.setText("This place is not registered");
+                        }else{
+                            placeIdText.setText("This place is not registered");
+                        }
+
+
+                    }
                 }
+
 
 
 

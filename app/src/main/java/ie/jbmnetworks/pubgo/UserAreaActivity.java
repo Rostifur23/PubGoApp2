@@ -27,6 +27,8 @@ public class UserAreaActivity extends AppCompatActivity {
     //MapActivity Transfer;
     ArrayList<String> placeIdArray = new ArrayList<String>();
     ArrayList<String> pubIdArray = new ArrayList<String>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,13 +51,11 @@ public class UserAreaActivity extends AppCompatActivity {
         //Test Button
 
 
-
-
         //map link button.
         Button bMap = (Button) findViewById(R.id.bMap);
 
-        bMap.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        bMap.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 //startActivity(new Intent(UserAreaActivity.this, MapActivity.class));
                 Intent i = new Intent(UserAreaActivity.this, MapActivity.class);
 
@@ -65,6 +65,7 @@ public class UserAreaActivity extends AppCompatActivity {
 
                             @Override
                             public void onResponse(JSONObject response) {
+
 
                                 try {
                                     JSONArray jsonArray = response.getJSONArray("arr");
@@ -81,20 +82,11 @@ public class UserAreaActivity extends AppCompatActivity {
                                     }
 
 
-
-
-
-
-
-
-
-
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
+
                             }
-
-
 
 
                         },
@@ -113,14 +105,11 @@ public class UserAreaActivity extends AppCompatActivity {
                 startActivity(i);
 
 
-
             }
 
 
         });
-
-
-
     }
+
 
 }
