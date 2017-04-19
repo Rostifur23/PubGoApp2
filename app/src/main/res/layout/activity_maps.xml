@@ -24,6 +24,16 @@
         android:text="Account" />
 
     <Button
+        android:id="@+id/bDrinkList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Account" />
+
+    <Button
         android:text="Profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

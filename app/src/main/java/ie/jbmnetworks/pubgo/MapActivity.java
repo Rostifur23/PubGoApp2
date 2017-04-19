@@ -1,7 +1,10 @@
 package ie.jbmnetworks.pubgo;
 
 import android.*;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -48,15 +51,14 @@ public class MapActivity extends AppCompatActivity {
     WebView attributionText;
     Button getPlaceButton;
     Button bMark;
+
     private final static int MY_PERMISSION_FINE_LOCATION = 101;
-
-
-
 
 
     private final static int PLACE_PICKER_REQUEST = 1;
     RequestQueue requestQueue;
     private UserAreaActivity userAreaActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +66,11 @@ public class MapActivity extends AppCompatActivity {
 
 
 
-        if(getIntent().hasExtra("place")){
+
+
+
+
+        /*if(getIntent().hasExtra("place")){
             ArrayList<String> Place_Id = getIntent().getStringArrayListExtra("place");
 
             for(String s : Place_Id){
@@ -82,8 +88,7 @@ public class MapActivity extends AppCompatActivity {
                 Toast.makeText(this, s, Toast.LENGTH_LONG).show();
 
             }
-        }
-
+        }*/
 
 
         //dealing with run time premishions
@@ -109,17 +114,14 @@ public class MapActivity extends AppCompatActivity {
 
         bExit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(MapActivity.this, ExitActivity.class));
+                startActivity(new Intent(MapActivity.this, DrinkListActivity.class));
             }
         });
-
 
 
         getPlaceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
 
 
                 //make intent builder
@@ -172,7 +174,6 @@ public class MapActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
 
-
         if (requestCode == PLACE_PICKER_REQUEST) {
             if (resultCode == RESULT_OK) {
                 Place place = PlacePicker.getPlace(MapActivity.this, data);
@@ -181,36 +182,34 @@ public class MapActivity extends AppCompatActivity {
                 placeAddressText.setText(place.getAddress());
 
 
-                if(getIntent().hasExtra("place")){
+                if (getIntent().hasExtra("place")) {
                     ArrayList<String> Place_Id = getIntent().getStringArrayListExtra("place");
 
-                    for(int j = 0;j<Place_Id.size();j++){
+                    for (int j = 0; j < Place_Id.size(); j++) {
+
 
                         final CharSequence placeIdVar = place.getId();
 
 
-                        if(placeIdVar.equals(Place_Id.get(j))){
-                            placeIdText.setText("This place is registered.");
+                        if (placeIdVar.equals(Place_Id.get(j))) {
+
+
+                            //placeIdText.setText("This place is registered.");
+                            PrefMan.getInstance(this).setPID(j);
+                            int pid = PrefMan.getInstance(this).getPID();
+                            placeIdText.setText("Hello " + pid);
                             break;
 
 
-                        }else{
+                        } else {
                             placeIdText.setText("This place is not registered");
                         }
-
-
 
 
                     }
 
 
-
-
                 }
-
-
-
-
 
 
                 if (place.getAttributions() == null) {
@@ -224,10 +223,17 @@ public class MapActivity extends AppCompatActivity {
             }
 
         }
+
     }
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
