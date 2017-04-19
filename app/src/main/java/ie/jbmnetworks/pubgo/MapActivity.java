@@ -178,21 +178,22 @@ public class MapActivity extends AppCompatActivity {
                 if(getIntent().hasExtra("place")){
                     ArrayList<String> Place_Id = getIntent().getStringArrayListExtra("place");
 
-                    for(String s : Place_Id){
-                        //Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+                    for(int j = 0;j<Place_Id.size();j++){
 
                         final CharSequence placeIdVar = place.getId();
 
 
-                        if(placeIdVar.equals(s)){
+                        if(placeIdVar.equals(Place_Id.get(j))){
                             placeIdText.setText("This place is registered.");
+                            break;
 
                         }else{
                             placeIdText.setText("This place is not registered");
                         }
 
-
                     }
+
+                    
                 }
 
 
