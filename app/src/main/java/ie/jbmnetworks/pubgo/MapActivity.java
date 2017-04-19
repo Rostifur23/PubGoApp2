@@ -52,6 +52,8 @@ public class MapActivity extends AppCompatActivity {
 
 
 
+
+
     private final static int PLACE_PICKER_REQUEST = 1;
     RequestQueue requestQueue;
     private UserAreaActivity userAreaActivity;
@@ -168,12 +170,16 @@ public class MapActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+
+
         if (requestCode == PLACE_PICKER_REQUEST) {
             if (resultCode == RESULT_OK) {
                 Place place = PlacePicker.getPlace(MapActivity.this, data);
                 placeNameText.setText(place.getName()
                 );
                 placeAddressText.setText(place.getAddress());
+
 
                 if(getIntent().hasExtra("place")){
                     ArrayList<String> Place_Id = getIntent().getStringArrayListExtra("place");
@@ -187,13 +193,19 @@ public class MapActivity extends AppCompatActivity {
                             placeIdText.setText("This place is registered.");
                             break;
 
+
                         }else{
                             placeIdText.setText("This place is not registered");
                         }
 
+
+
+
                     }
 
-                    
+
+
+
                 }
 
 
