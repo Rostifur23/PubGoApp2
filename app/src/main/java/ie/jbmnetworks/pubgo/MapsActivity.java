@@ -1,3 +1,21 @@
+/*
+
+OLD MAP.... Deceied to use place picker instead
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
 package ie.jbmnetworks.pubgo;
 
 import android.*;

@@ -72,9 +72,10 @@ public class UserAreaActivity extends AppCompatActivity {
 
 
                                     for (int i = 0; i < jsonArray.length(); i++) {
+                                        //creating two JSON Arrays to store our array from the DB
                                         JSONObject Place_id = jsonArray.getJSONObject(i);
                                         JSONObject Pub_id = jsonArray.getJSONObject(i);
-
+                                        //setting them to the two arrayLists declared at the top of the class
                                         placeIdArray.add(Place_id.getString("place_id"));
                                         pubIdArray.add(Pub_id.getString("pub_id"));
 
@@ -98,10 +99,11 @@ public class UserAreaActivity extends AppCompatActivity {
                             }
                         }
                 );
-
+                //putString method is for passing the arrayList to the next activity identifying it by a string
                 i.putStringArrayListExtra("place", placeIdArray);
                 i.putStringArrayListExtra("pub", pubIdArray);
                 requestQueue.add(jsonObjectRequest);
+                //start the next activity
                 startActivity(i);
 
 

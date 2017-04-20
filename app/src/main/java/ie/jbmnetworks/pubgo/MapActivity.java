@@ -1,4 +1,7 @@
 package ie.jbmnetworks.pubgo;
+/*
+Followed this tutorial and adapted it to out needs https://www.youtube.com/watch?v=hDXzW3J7Ul0
+*/
 
 import android.*;
 import android.app.Activity;
@@ -44,6 +47,7 @@ import static ie.jbmnetworks.pubgo.R.id.tvPlace;
  */
 
 public class MapActivity extends AppCompatActivity {
+    //making the buttons
     TextView placeIdText;
     TextView placeNameText;
     TextView placeAddressText;
@@ -51,10 +55,10 @@ public class MapActivity extends AppCompatActivity {
     WebView attributionText;
     Button getPlaceButton;
     Button bMark;
-
+    //Setting the value of fine location
     private final static int MY_PERMISSION_FINE_LOCATION = 101;
 
-
+    //Setting the value of picker
     private final static int PLACE_PICKER_REQUEST = 1;
     RequestQueue requestQueue;
     private UserAreaActivity userAreaActivity;
@@ -93,6 +97,7 @@ public class MapActivity extends AppCompatActivity {
 
         //dealing with run time premishions
         requestPermission();
+        //Setting Id's
         placeNameText = (TextView) findViewById(R.id.tvPlaceName);
         placeAddressText = (TextView) findViewById(R.id.tvPlaceAddress);
         attributionText = (WebView) findViewById(R.id.wvAttribution);
@@ -102,7 +107,7 @@ public class MapActivity extends AppCompatActivity {
 
         Button bProfile = (Button) findViewById(R.id.bProfile);
 
-
+        // setting the buttons to do tasks
         bProfile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(MapActivity.this, ProfileActivity.class));
@@ -118,7 +123,7 @@ public class MapActivity extends AppCompatActivity {
             }
         });
 
-
+        //how we get the information from the pub and the database
         getPlaceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,7 +178,7 @@ public class MapActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-
+        //Checking place picker
         if (requestCode == PLACE_PICKER_REQUEST) {
             if (resultCode == RESULT_OK) {
                 Place place = PlacePicker.getPlace(MapActivity.this, data);
@@ -194,10 +199,12 @@ public class MapActivity extends AppCompatActivity {
                         if (placeIdVar.equals(Place_Id.get(j))) {
 
 
-                            //placeIdText.setText("This place is registered.");
+                            //using shared preferences to save the instance of the pub id from the loop across all classes
                             PrefMan.getInstance(this).setPID(j);
+                            //getting the instance from shared pref
                             int pid = PrefMan.getInstance(this).getPID();
                             placeIdText.setText("Pub Reference in the ArrayList " + pid);
+                            //ends loop when place id found
                             break;
 
 

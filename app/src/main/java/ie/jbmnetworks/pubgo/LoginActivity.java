@@ -15,6 +15,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+//Followed this Youtube tutorial https://www.youtube.com/watch?v=QxffHgiJ64M
 
 public class LoginActivity extends AppCompatActivity {
     @Override

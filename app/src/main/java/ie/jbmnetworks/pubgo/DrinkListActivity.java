@@ -21,7 +21,7 @@ public class DrinkListActivity extends AppCompatActivity {
 
         placeIdText = (TextView) findViewById(R.id.PIDTextView);
 
-
+        //calling in the instance of the array so we can use in a volley method to display the drinks
         int pid = PrefMan.getInstance(this).getPID();
         placeIdText.setText("Pub Reference in ArrayList " + pid);
     }

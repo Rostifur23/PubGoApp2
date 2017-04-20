@@ -10,6 +10,15 @@ import java.util.Map;
  * Created by Jack on 3/14/2017.
  */
 
+/*
+
+Using the volley libary to send off the request to our database
+
+followed the tutoirals on androids website and youtube:
+https://www.youtube.com/watch?v=QxffHgiJ64M
+
+ */
+
 public class RegisterRequest extends StringRequest {
 
     private static final String REGISTER_REQUEST_URL = "https://pubgo-jackbourkemckenna.c9users.io/app/register.php";

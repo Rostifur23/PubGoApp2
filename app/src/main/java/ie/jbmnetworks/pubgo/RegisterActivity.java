@@ -20,13 +20,13 @@ import org.json.JSONObject;
 import java.util.Arrays;
 
 public class RegisterActivity extends AppCompatActivity {
-    //These are some tests comments to check git commits Override
+    //Sign up form
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        //setting the buttons
         final EditText etAge = (EditText) findViewById(R.id.etAge);
         final EditText etName = (EditText) findViewById(R.id.etName);
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
@@ -40,12 +40,13 @@ public class RegisterActivity extends AppCompatActivity {
                 final String username = etUsername.getText().toString();
                 final int age = Integer.parseInt(etAge.getText().toString());
                 final String password = etPassword.getText().toString();
-
+                //if password is less than 5 make them type password again
                 if(etPassword.length() < 5){
 
                     String[] Err = {"Please make password longer"};
                     Toast.makeText(RegisterActivity.this, ""+ Arrays.toString(Err), Toast.LENGTH_LONG).show();
                 }else {
+                    //getting the json response file to check through
                     Response.Listener<String> responseListener = new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
