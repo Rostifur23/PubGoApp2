@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/Rostifur/PubGoApp2/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/Users/Rostifur/PubGoApp2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_24117141f9750c5374833638a907fe6043554f15/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Rostifur/PubGoApp2/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="927d7cfc8ed79f901acf2e376b49387566964575">
+        <dex dex="/Users/Rostifur/PubGoApp2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ee1fe071ba035a431df634ac6e87c622b7085824/classes.dex" />
+    </item>
+
+</items>

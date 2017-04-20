@@ -197,7 +197,7 @@ public class MapActivity extends AppCompatActivity {
                             //placeIdText.setText("This place is registered.");
                             PrefMan.getInstance(this).setPID(j);
                             int pid = PrefMan.getInstance(this).getPID();
-                            placeIdText.setText("Hello " + pid);
+                            placeIdText.setText("Pub Reference in the ArrayList " + pid);
                             break;
 
 

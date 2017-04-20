@@ -23,6 +23,6 @@ public class DrinkListActivity extends AppCompatActivity {
 
 
         int pid = PrefMan.getInstance(this).getPID();
-        placeIdText.setText("Hello " + pid);
+        placeIdText.setText("Pub Reference in ArrayList " + pid);
     }
 }
