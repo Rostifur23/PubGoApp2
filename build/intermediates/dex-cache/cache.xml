@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/Rostifur/PubGoApp2/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="C:\Users\Jack\Desktop\PubGoApp2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1013c474bd1a5bff041e080e38ff8d7b32eb6aa2">
+        <dex dex="C:\Users\Jack\Desktop\PubGoApp2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_dc35ba7a37368f55063c7daaff14a473aeffde85\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Jack\Desktop\PubGoApp2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="/Users/Rostifur/PubGoApp2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_24117141f9750c5374833638a907fe6043554f15/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Rostifur/PubGoApp2/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="927d7cfc8ed79f901acf2e376b49387566964575">
-        <dex dex="/Users/Rostifur/PubGoApp2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ee1fe071ba035a431df634ac6e87c622b7085824/classes.dex" />
+        <dex dex="C:\Users\Jack\Desktop\PubGoApp2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_4449dcee8b4f85fb0490506c8fedb36513af9a31\classes.dex" />
     </item>
 
 </items>

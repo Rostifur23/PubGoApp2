@@ -75,7 +75,8 @@
         <activity android:name=".EditActivity" />
         <activity android:name=".ExitActivity" />
         <activity android:name=".MapActivity" />
-        <activity android:name=".DrinkListActivity"></activity>
+        <activity android:name=".DrinkListActivity" />
+        <activity android:name=".SurveyActivity"></activity>
     </application>
 
 </manifest>
