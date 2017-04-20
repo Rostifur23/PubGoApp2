@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#34404d"
+    android:contextClickable="false"
+    android:longClickable="false"
     android:padding="@dimen/activity_horizontal_margin">
 
     <TextView
@@ -12,70 +16,63 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:text="hello world"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/etUsername"
+        android:layout_alignBottom="@+id/etUsername"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tvWelcomeMsg"
-        android:text="Username"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="Username:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/etUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:editable="false" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etUsername"
-        android:text="Age"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/etAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView2" />
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tvWelcomeMsg"
+        android:layout_marginTop="24dp"
+        android:layout_toEndOf="@+id/tvWelcomeMsg"
+        android:layout_toRightOf="@+id/tvWelcomeMsg"
+        android:editable="false"
+        android:textColor="#FFFFFF" />
 
     <Button
-        android:text="Map"
+        android:id="@+id/bMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bMap"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/tvWelcomeMsg"
-        android:layout_toEndOf="@+id/tvWelcomeMsg"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginBottom="53dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#3eb9e3"
+        android:text="Map" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/bMap"
-        android:layout_alignRight="@+id/bMap"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
-        android:text="TextView" />
+        android:layout_alignBottom="@+id/etUsername"
+        android:layout_alignLeft="@+id/etUsername"
+        android:layout_alignStart="@+id/etUsername"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bMap"
+        android:layout_alignBottom="@+id/bMap"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Is your pub Registered with Us?"
+        android:textColor="#FF0099CC" />
 
 </RelativeLayout>
